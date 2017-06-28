@@ -5,6 +5,8 @@ namespace LibraryApp
 {
     public class Library
     {
+        public event EventHandler<string> LibraryHandler;
+
         private List<Book> books;
         private List<Subscriber> subscribers;
 
@@ -29,6 +31,7 @@ namespace LibraryApp
         public void AddBook(Book book)
         {
             books.Add(book);
+            LibraryHandler(this, $"Add Book: {book.Author} - {book.Name}");
         }
 
         // Список книг библиотеки
@@ -84,6 +87,7 @@ namespace LibraryApp
             if (countsub == 0)
             {
                 subscribers.Add(sub);
+                LibraryHandler(this, $"Add Subscriber: {sub.Name} - {sub.Phone}");
             }
             
             if (sub.OverdueBooks().Count == 0 && sub.CountBook < 5 && (sub.HasRarityBook == false || (sub.HasRarityBook == true && book.IsRarity == false)))
@@ -107,6 +111,7 @@ namespace LibraryApp
                 book.Begin = DateTime.Now;
                 book.End = DateTime.Now;
                 sub.Books.Add(book);
+                LibraryHandler(this, $"Change State Book: {book.Author} - {book.Name} was given to {sub.Name} - {sub.Phone}");
                 if (book.IsRarity)
                     sub.HasRarityBook = true ;
                 sub.CountBook++;
@@ -115,9 +120,14 @@ namespace LibraryApp
             {
                 Console.WriteLine("Пользователь {0}, сдайте {1} книги", sub.Name, sub.OverdueBooks().Count > 0 ? "просроченные" : "лишние");
             }
-
         }
 
+
+        public void ReturnBook(Subscriber sub, Book book)
+        {
+            sub.ReturnBook(this, book);
+            LibraryHandler(this, $"Change State Book: {book.Author} - {book.Name} was return to Library");
+        }
 
         public static void Main()
         {
@@ -135,6 +145,9 @@ namespace LibraryApp
             Book book7 = new Book("7", "77", false);
             Book book8 = new Book("8", "88", true);
             Book book9 = new Book("9", "99", false);
+            
+            EventHandler<string> libraryHandler = (sender, str) => Console.WriteLine(str);
+            library.LibraryHandler = libraryHandler;
 
             library.AddBook(book1);
             library.AddBook(book2);
@@ -161,7 +174,7 @@ namespace LibraryApp
             sub2.TakeBook(library, book9);
 
             Console.WriteLine(sub1.HasRarityBook);
-            sub1.ReturnBook(library, book1);
+            library.ReturnBook(sub1, book1);
             Console.WriteLine(sub1.HasRarityBook);
             Console.WriteLine(sub1.ListBooks().Count);
             Console.WriteLine(library.ListBooks().Count);

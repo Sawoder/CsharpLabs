@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest
     {
         private Library library;
         private Subscriber subscriber;
@@ -35,6 +35,9 @@ namespace UnitTest
             book7 = new Book("7", "77", false);
             book8 = new Book("8", "88", true);
             book9 = new Book("9", "99", false);
+
+            EventHandler<string> libraryHandler = (sender, str) => Console.WriteLine(str);
+            library.LibraryHandler += libraryHandler;
 
             library.AddBook(book1);
             library.AddBook(book2);
@@ -154,6 +157,66 @@ namespace UnitTest
         {
             Assert.AreSame(book1, library["1", "11"]);
         }
+
+        [TestMethod]
+        public void Library_AddBookHandler()
+        {
+            List<string> receivedEvents = new List<string>();
+            Library lib = new Library();
+
+            lib.LibraryHandler += delegate (object sender, string str)
+            {
+                receivedEvents.Add(str);
+            };
+
+            lib.AddBook(new Book("test1", "test1", true));
+            lib.AddBook(new Book("test2", "test2", false));
+            
+            Assert.AreEqual(2, receivedEvents.Count);
+            Assert.AreEqual("Add Book: test1 - test1", receivedEvents[0]);
+            Assert.AreEqual("Add Book: test2 - test2", receivedEvents[1]);
+        }
+
+        [TestMethod]
+        public void Library_AddSubscriberHandler()
+        {
+            List<string> receivedEvents = new List<string>();
+            Library lib = new Library();
+
+            lib.LibraryHandler += delegate (object sender, string str)
+            {
+                receivedEvents.Add(str);
+            };
+            
+            Book bk1 = new Book("test1", "test1", false);
+            lib.AddBook(bk1);
+
+            lib.GiveBook(subscriber, bk1);
+
+            Assert.AreEqual(3, receivedEvents.Count);
+            Assert.AreEqual("Add Subscriber: First - 123456789", receivedEvents[1]);
+        }
+
+        [TestMethod]
+        public void Library_ChangeStateBookHandler()
+        {
+            List<string> receivedEvents = new List<string>();
+            Library lib = new Library();
+
+            lib.LibraryHandler += delegate (object sender, string str)
+            {
+                receivedEvents.Add(str);
+            };
+
+            Book bk1 = new Book("test1", "test1", false);
+            lib.AddBook(bk1);
+
+            lib.GiveBook(subscriber, bk1);
+
+            Assert.AreEqual(3, receivedEvents.Count);
+            Assert.AreEqual("Change State Book: test1 - test1 was given to First - 123456789", receivedEvents[2]);
+        }
+
 
         [TestCleanup]
         public void TearDown()
