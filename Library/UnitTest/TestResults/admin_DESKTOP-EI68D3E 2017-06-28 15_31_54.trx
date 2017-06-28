@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="3a6387c9-03d3-431a-a57f-6f94733d5eed" name="admin@DESKTOP-EI68D3E 2017-06-28 15:31:54" runUser="DESKTOP-EI68D3E\admin" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Параметры тестирования по умолчанию" id="4783133b-3062-4ea8-b940-f818fe7765c8">
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Deployment runDeploymentRoot="admin_DESKTOP-EI68D3E 2017-06-28 15_31_54" />
+    <Properties />
+  </TestSettings>
+  <Times creation="2017-06-28T15:31:54.3431871+03:00" queuing="2017-06-28T15:31:54.6831139+03:00" start="2017-06-28T15:31:54.7793720+03:00" finish="2017-06-28T15:31:55.4215581+03:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="14" executed="14" passed="14" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Library_Indexator" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="45cef6e1-f942-1573-51e1-4e344d144f13">
+      <Execution id="ea953945-1868-42c4-8f29-c2e5c6775e33" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Library_Indexator" />
+    </UnitTest>
+    <UnitTest name="Library_GiveBook" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="37c7d79c-bab8-c51e-780b-e7e4c327f49d">
+      <Execution id="314e9dec-a270-41b0-96e1-9969c04755d9" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Library_GiveBook" />
+    </UnitTest>
+    <UnitTest name="Subscriber_ListBooks" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="bc9422e2-7d40-ace4-4a2a-4600fda0a138">
+      <Execution id="e131f129-e483-4ea7-8888-e26dfbf8325a" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Subscriber_ListBooks" />
+    </UnitTest>
+    <UnitTest name="Book_WhereAreBook" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="348b4685-e3d4-6469-a8cb-a4f0a97c6574">
+      <Execution id="dbbd1607-1a8f-44ea-81b7-867567866ce9" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Book_WhereAreBook" />
+    </UnitTest>
+    <UnitTest name="Library_Find" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="e27c50d8-9689-c9c7-b001-95eeb7b53f17">
+      <Execution id="1fc5d2c4-790e-400b-a49f-f23840f4a8e0" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Library_Find" />
+    </UnitTest>
+    <UnitTest name="Subscriber_ReturnBook" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="48f71b0f-5aa6-d3a7-d710-d4e9a9676980">
+      <Execution id="8094ce17-ef2c-4f46-b4cf-b500864188c1" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Subscriber_ReturnBook" />
+    </UnitTest>
+    <UnitTest name="Book_DateOfIssue" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="b5cf3898-e510-89c6-48ba-6bf0fb8cfa3e">
+      <Execution id="e6cfc1b7-a974-4bb5-a745-745335d1fa72" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Book_DateOfIssue" />
+    </UnitTest>
+    <UnitTest name="Library_ListBooks" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="3e3ba50c-09dc-9597-e0a7-323699019ffd">
+      <Execution id="db4737b2-74e9-4abe-ad13-afee52996747" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Library_ListBooks" />
+    </UnitTest>
+    <UnitTest name="Library_AddBook" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="7c0174bc-0c46-47e0-2bd8-76ad1df5e992">
+      <Execution id="ec1aea68-fab5-46fa-b7e0-3184d44d1d83" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Library_AddBook" />
+    </UnitTest>
+    <UnitTest name="Subscriber_TakeBook" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="7688cef8-0b1d-e668-ef1a-6c6147524c35">
+      <Execution id="484c0042-633d-4ed6-830b-66031cabd567" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Subscriber_TakeBook" />
+    </UnitTest>
+    <UnitTest name="Book_OverdueBook" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="dc9b6c23-c4df-506b-de0a-d90b1a8b3f0e">
+      <Execution id="7392098f-5cc7-4d9c-a19c-60ab3a982690" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Book_OverdueBook" />
+    </UnitTest>
+    <UnitTest name="Subscriber_OverdueBooks" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="09430bff-dff7-cb73-192c-0f15ffe6c593">
+      <Execution id="e7de98f6-62b0-400a-baaf-1e038960ed61" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Subscriber_OverdueBooks" />
+    </UnitTest>
+    <UnitTest name="Subscriber_Indexator" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="e37f780b-5e87-36c2-06a8-1058bcf36e8e">
+      <Execution id="c7821f6d-e929-4332-a2a0-9b2c309a5583" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Subscriber_Indexator" />
+    </UnitTest>
+    <UnitTest name="Library_FullList" storage="c:\users\delfi\documents\visual studio 2017\projects\consoleapp1\unittestproject1\bin\debug\unittestproject1.dll" id="f5b7ef19-7f5d-fbf8-50b7-43eb5fcd7e3e">
+      <Execution id="c1fdb875-f782-4bab-9627-5ad6df67afc3" />
+      <TestMethod codeBase="C:/Users/delfi/Documents/Visual Studio 2017/Projects/ConsoleApp1/UnitTestProject1/bin/Debug/UnitTestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest1, UnitTestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Library_FullList" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Отсутствующие в списке результаты" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Все загруженные результаты" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b5cf3898-e510-89c6-48ba-6bf0fb8cfa3e" executionId="e6cfc1b7-a974-4bb5-a745-745335d1fa72" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dc9b6c23-c4df-506b-de0a-d90b1a8b3f0e" executionId="7392098f-5cc7-4d9c-a19c-60ab3a982690" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="348b4685-e3d4-6469-a8cb-a4f0a97c6574" executionId="dbbd1607-1a8f-44ea-81b7-867567866ce9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7c0174bc-0c46-47e0-2bd8-76ad1df5e992" executionId="ec1aea68-fab5-46fa-b7e0-3184d44d1d83" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e27c50d8-9689-c9c7-b001-95eeb7b53f17" executionId="1fc5d2c4-790e-400b-a49f-f23840f4a8e0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f5b7ef19-7f5d-fbf8-50b7-43eb5fcd7e3e" executionId="c1fdb875-f782-4bab-9627-5ad6df67afc3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="37c7d79c-bab8-c51e-780b-e7e4c327f49d" executionId="314e9dec-a270-41b0-96e1-9969c04755d9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="45cef6e1-f942-1573-51e1-4e344d144f13" executionId="ea953945-1868-42c4-8f29-c2e5c6775e33" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3e3ba50c-09dc-9597-e0a7-323699019ffd" executionId="db4737b2-74e9-4abe-ad13-afee52996747" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e37f780b-5e87-36c2-06a8-1058bcf36e8e" executionId="c7821f6d-e929-4332-a2a0-9b2c309a5583" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bc9422e2-7d40-ace4-4a2a-4600fda0a138" executionId="e131f129-e483-4ea7-8888-e26dfbf8325a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="09430bff-dff7-cb73-192c-0f15ffe6c593" executionId="e7de98f6-62b0-400a-baaf-1e038960ed61" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="48f71b0f-5aa6-d3a7-d710-d4e9a9676980" executionId="8094ce17-ef2c-4f46-b4cf-b500864188c1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7688cef8-0b1d-e668-ef1a-6c6147524c35" executionId="484c0042-633d-4ed6-830b-66031cabd567" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="e6cfc1b7-a974-4bb5-a745-745335d1fa72" testId="b5cf3898-e510-89c6-48ba-6bf0fb8cfa3e" testName="Book_DateOfIssue" computerName="DESKTOP-EI68D3E" duration="00:00:00.0380761" startTime="2017-06-28T15:31:54.9102184+03:00" endTime="2017-06-28T15:31:55.2794422+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e6cfc1b7-a974-4bb5-a745-745335d1fa72">
+    </UnitTestResult>
+    <UnitTestResult executionId="7392098f-5cc7-4d9c-a19c-60ab3a982690" testId="dc9b6c23-c4df-506b-de0a-d90b1a8b3f0e" testName="Book_OverdueBook" computerName="DESKTOP-EI68D3E" duration="00:00:00.0007803" startTime="2017-06-28T15:31:55.2839611+03:00" endTime="2017-06-28T15:31:55.2874640+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7392098f-5cc7-4d9c-a19c-60ab3a982690">
+    </UnitTestResult>
+    <UnitTestResult executionId="dbbd1607-1a8f-44ea-81b7-867567866ce9" testId="348b4685-e3d4-6469-a8cb-a4f0a97c6574" testName="Book_WhereAreBook" computerName="DESKTOP-EI68D3E" duration="00:00:00.0013115" startTime="2017-06-28T15:31:55.2924778+03:00" endTime="2017-06-28T15:31:55.2959901+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dbbd1607-1a8f-44ea-81b7-867567866ce9">
+    </UnitTestResult>
+    <UnitTestResult executionId="ec1aea68-fab5-46fa-b7e0-3184d44d1d83" testId="7c0174bc-0c46-47e0-2bd8-76ad1df5e992" testName="Library_AddBook" computerName="DESKTOP-EI68D3E" duration="00:00:00.0010240" startTime="2017-06-28T15:31:55.3020031+03:00" endTime="2017-06-28T15:31:55.3055124+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ec1aea68-fab5-46fa-b7e0-3184d44d1d83">
+    </UnitTestResult>
+    <UnitTestResult executionId="1fc5d2c4-790e-400b-a49f-f23840f4a8e0" testId="e27c50d8-9689-c9c7-b001-95eeb7b53f17" testName="Library_Find" computerName="DESKTOP-EI68D3E" duration="00:00:00.0008021" startTime="2017-06-28T15:31:55.3125311+03:00" endTime="2017-06-28T15:31:55.3155391+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1fc5d2c4-790e-400b-a49f-f23840f4a8e0">
+    </UnitTestResult>
+    <UnitTestResult executionId="c1fdb875-f782-4bab-9627-5ad6df67afc3" testId="f5b7ef19-7f5d-fbf8-50b7-43eb5fcd7e3e" testName="Library_FullList" computerName="DESKTOP-EI68D3E" duration="00:00:00.0026658" startTime="2017-06-28T15:31:55.3200507+03:00" endTime="2017-06-28T15:31:55.3245623+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c1fdb875-f782-4bab-9627-5ad6df67afc3">
+    </UnitTestResult>
+    <UnitTestResult executionId="314e9dec-a270-41b0-96e1-9969c04755d9" testId="37c7d79c-bab8-c51e-780b-e7e4c327f49d" testName="Library_GiveBook" computerName="DESKTOP-EI68D3E" duration="00:00:00.0002811" startTime="2017-06-28T15:31:55.3290764+03:00" endTime="2017-06-28T15:31:55.3315814+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="314e9dec-a270-41b0-96e1-9969c04755d9">
+    </UnitTestResult>
+    <UnitTestResult executionId="ea953945-1868-42c4-8f29-c2e5c6775e33" testId="45cef6e1-f942-1573-51e1-4e344d144f13" testName="Library_Indexator" computerName="DESKTOP-EI68D3E" duration="00:00:00.0011221" startTime="2017-06-28T15:31:55.3355920+03:00" endTime="2017-06-28T15:31:55.3396031+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ea953945-1868-42c4-8f29-c2e5c6775e33">
+    </UnitTestResult>
+    <UnitTestResult executionId="db4737b2-74e9-4abe-ad13-afee52996747" testId="3e3ba50c-09dc-9597-e0a7-323699019ffd" testName="Library_ListBooks" computerName="DESKTOP-EI68D3E" duration="00:00:00.0017480" startTime="2017-06-28T15:31:55.3441147+03:00" endTime="2017-06-28T15:31:55.3481249+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="db4737b2-74e9-4abe-ad13-afee52996747">
+    </UnitTestResult>
+    <UnitTestResult executionId="c7821f6d-e929-4332-a2a0-9b2c309a5583" testId="e37f780b-5e87-36c2-06a8-1058bcf36e8e" testName="Subscriber_Indexator" computerName="DESKTOP-EI68D3E" duration="00:00:00.0003963" startTime="2017-06-28T15:31:55.3526374+03:00" endTime="2017-06-28T15:31:55.3551440+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c7821f6d-e929-4332-a2a0-9b2c309a5583">
+    </UnitTestResult>
+    <UnitTestResult executionId="e131f129-e483-4ea7-8888-e26dfbf8325a" testId="bc9422e2-7d40-ace4-4a2a-4600fda0a138" testName="Subscriber_ListBooks" computerName="DESKTOP-EI68D3E" duration="00:00:00.0003315" startTime="2017-06-28T15:31:55.3591598+03:00" endTime="2017-06-28T15:31:55.3616614+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e131f129-e483-4ea7-8888-e26dfbf8325a">
+    </UnitTestResult>
+    <UnitTestResult executionId="e7de98f6-62b0-400a-baaf-1e038960ed61" testId="09430bff-dff7-cb73-192c-0f15ffe6c593" testName="Subscriber_OverdueBooks" computerName="DESKTOP-EI68D3E" duration="00:00:00.0003468" startTime="2017-06-28T15:31:55.3661734+03:00" endTime="2017-06-28T15:31:55.3686805+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e7de98f6-62b0-400a-baaf-1e038960ed61">
+    </UnitTestResult>
+    <UnitTestResult executionId="8094ce17-ef2c-4f46-b4cf-b500864188c1" testId="48f71b0f-5aa6-d3a7-d710-d4e9a9676980" testName="Subscriber_ReturnBook" computerName="DESKTOP-EI68D3E" duration="00:00:00.0012864" startTime="2017-06-28T15:31:55.3724245+03:00" endTime="2017-06-28T15:31:55.3759705+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8094ce17-ef2c-4f46-b4cf-b500864188c1">
+    </UnitTestResult>
+    <UnitTestResult executionId="484c0042-633d-4ed6-830b-66031cabd567" testId="7688cef8-0b1d-e668-ef1a-6c6147524c35" testName="Subscriber_TakeBook" computerName="DESKTOP-EI68D3E" duration="00:00:00.0003716" startTime="2017-06-28T15:31:55.3799462+03:00" endTime="2017-06-28T15:31:55.3819549+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="484c0042-633d-4ed6-830b-66031cabd567">
+    </UnitTestResult>
+  </Results>
+</TestRun>
