@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ComplexApp
 {
     public struct Complex
     {
@@ -100,8 +96,6 @@ namespace ConsoleApp1
             Console.WriteLine(comp1.GetHashCode());
             Console.WriteLine(comp2.GetHashCode());
             Console.WriteLine(comp1.Equals(comp2));
-            // if (ReferenceEquals(null, obj)) return false;
-            // return obj is Sample && Equals((Sample) obj);
         }
     }
 }
