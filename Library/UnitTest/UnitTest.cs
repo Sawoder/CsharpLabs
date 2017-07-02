@@ -36,8 +36,20 @@ namespace UnitTest
             book8 = new Book("8", "88", true);
             book9 = new Book("9", "99", false);
 
-            EventHandler<string> libraryHandler = (sender, str) => Console.WriteLine(str);
-            library.LibraryHandler += libraryHandler;
+            EventHandler<string> changeStateHandler = (sender, str) => Console.WriteLine(str);
+            EventHandler<Book> addBookHandler = (sender, book) =>
+            {
+                Console.WriteLine($"Book Add by {sender}");
+                Console.WriteLine("{0} - {1} ({2})", book.Author, book.Name, book.IsRarity ? "Rarity" : "Not rarity");
+            };
+            EventHandler<Subscriber> addSubHandler = (sender, sub) =>
+            {
+                Console.WriteLine($"Book Add by {sender}");
+                Console.WriteLine("Name: {0}\nPhone: {1}", sub.Name, sub.Phone);
+            };
+            library.ChangeStateHandler += changeStateHandler;
+            library.AddBookHandler += addBookHandler;
+            library.AddSubHandler += addSubHandler;
 
             library.AddBook(book1);
             library.AddBook(book2);
@@ -60,7 +72,7 @@ namespace UnitTest
         public void Book_OverdueBook()
         {
             foreach (Book book in library.ListBooks())
-                Assert.IsFalse(book.OverdueBook());
+                Assert.IsTrue(book.OverdueBook());
         }
 
         [TestMethod]
@@ -164,17 +176,17 @@ namespace UnitTest
             List<string> receivedEvents = new List<string>();
             Library lib = new Library();
 
-            lib.LibraryHandler += delegate (object sender, string str)
+            lib.AddBookHandler += delegate (object sender, Book book)
             {
-                receivedEvents.Add(str);
+                receivedEvents.Add(book.Name);
             };
 
             lib.AddBook(new Book("test1", "test1", true));
             lib.AddBook(new Book("test2", "test2", false));
             
             Assert.AreEqual(2, receivedEvents.Count);
-            Assert.AreEqual("Add Book: test1 - test1", receivedEvents[0]);
-            Assert.AreEqual("Add Book: test2 - test2", receivedEvents[1]);
+            Assert.AreEqual("test1", receivedEvents[0]);
+            Assert.AreEqual("test2", receivedEvents[1]);
         }
 
         [TestMethod]
@@ -182,19 +194,20 @@ namespace UnitTest
         {
             List<string> receivedEvents = new List<string>();
             Library lib = new Library();
-
-            lib.LibraryHandler += delegate (object sender, string str)
+            lib.AddBookHandler += delegate (object sender, Book book) { };
+            lib.ChangeStateHandler += delegate (object sender, string str) { };
+            lib.AddSubHandler += delegate (object sender, Subscriber sub)
             {
-                receivedEvents.Add(str);
+                receivedEvents.Add(sub.Name);
             };
-            
+
             Book bk1 = new Book("test1", "test1", false);
             lib.AddBook(bk1);
 
             lib.GiveBook(subscriber, bk1);
 
-            Assert.AreEqual(3, receivedEvents.Count);
-            Assert.AreEqual("Add Subscriber: First - 123456789", receivedEvents[1]);
+            Assert.AreEqual(1, receivedEvents.Count);
+            Assert.AreEqual("First", receivedEvents[0]);
         }
 
         [TestMethod]
@@ -202,8 +215,9 @@ namespace UnitTest
         {
             List<string> receivedEvents = new List<string>();
             Library lib = new Library();
-
-            lib.LibraryHandler += delegate (object sender, string str)
+            lib.AddBookHandler += delegate (object sender, Book book) { };
+            lib.AddSubHandler += delegate (object sender, Subscriber sub) { };
+            lib.ChangeStateHandler += delegate (object sender, string str)
             {
                 receivedEvents.Add(str);
             };
@@ -213,8 +227,8 @@ namespace UnitTest
 
             lib.GiveBook(subscriber, bk1);
 
-            Assert.AreEqual(3, receivedEvents.Count);
-            Assert.AreEqual("Change State Book: test1 - test1 was given to First - 123456789", receivedEvents[2]);
+            Assert.AreEqual(1, receivedEvents.Count);
+            Assert.AreEqual("Change State Book: test1 - test1 was given to First - 123456789", receivedEvents[0]);
         }
 
 

@@ -9,7 +9,6 @@ namespace LibraryApp
         public string Phone { get; }
 
         public List<Book> Books { get; set; }
-        public int CountBook { get; set; }
         public bool HasRarityBook { get; set; }
 
         public Subscriber(string Name, string Phone)
@@ -17,7 +16,6 @@ namespace LibraryApp
             this.Name = Name;
             this.Phone = Phone;
             this.Books = new List<Book>();
-            this.CountBook = 0;
             this.HasRarityBook = false;
         }
 
@@ -56,13 +54,7 @@ namespace LibraryApp
         // Возврат книги
         public void ReturnBook(Library library, Book book)
         {
-            Books.Remove(book);
-            book.Begin = DateTime.MinValue;
-            book.End = DateTime.MinValue;
-            book.OverdueBook();
-            if (book.IsRarity)
-                HasRarityBook = false;
-            library.AddBook(book);
+            book.ReturnBook(library, this);
         }
 
     }

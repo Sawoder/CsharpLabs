@@ -10,9 +10,7 @@ namespace LibraryApp
         public bool IsRarity { get; }
 
         public DateTime Begin { get; set; }
-        public DateTime End { get; set; }
         public Subscriber Sub { get; set; }
-        public bool IsOverdue { get; set; }
 
         
         public Book(string Author, string Name, bool IsRarity)
@@ -22,8 +20,6 @@ namespace LibraryApp
             this.IsRarity = IsRarity;
             this.Sub = null;
             this.Begin = DateTime.MinValue;
-            this.End = DateTime.MinValue;
-            this.IsOverdue = false;
         }
 
         public string WhereAreBook()
@@ -36,16 +32,25 @@ namespace LibraryApp
 
         public bool OverdueBook()
         {
-            if (End.DayOfYear - Begin.DayOfYear >= 14)
+            if (DateTime.Now.DayOfYear - Begin.DayOfYear >= 14)
             {
-                IsOverdue = true;
                 return true;
             }
             else
             {
-                IsOverdue = false;
                 return false;
             }
+        }
+
+        public void ReturnBook(Library library, Subscriber sub)
+        {
+            sub.Books.Remove(this);
+            Begin = DateTime.MinValue;
+            OverdueBook();
+            Sub = null;
+            if (IsRarity)
+                sub.HasRarityBook = false;
+            library.AddBook(this);
         }
 
         public DateTime DateOfIssue()

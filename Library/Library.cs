@@ -5,7 +5,9 @@ namespace LibraryApp
 {
     public class Library
     {
-        public event EventHandler<string> LibraryHandler;
+        public event EventHandler<Book> AddBookHandler;
+        public event EventHandler<Subscriber> AddSubHandler;
+        public event EventHandler<string> ChangeStateHandler;
 
         private List<Book> books;
         private List<Subscriber> subscribers;
@@ -31,7 +33,7 @@ namespace LibraryApp
         public void AddBook(Book book)
         {
             books.Add(book);
-            LibraryHandler(this, $"Add Book: {book.Author} - {book.Name}");
+            AddBookHandler(this, book);
         }
 
         // Список книг библиотеки
@@ -87,10 +89,10 @@ namespace LibraryApp
             if (countsub == 0)
             {
                 subscribers.Add(sub);
-                LibraryHandler(this, $"Add Subscriber: {sub.Name} - {sub.Phone}");
+                AddSubHandler(this, sub);
             }
             
-            if (sub.OverdueBooks().Count == 0 && sub.CountBook < 5 && (sub.HasRarityBook == false || (sub.HasRarityBook == true && book.IsRarity == false)))
+            if (sub.OverdueBooks().Count == 0 && sub.ListBooks().Count < 5 && (sub.HasRarityBook == false || (sub.HasRarityBook == true && book.IsRarity == false)))
             {
                 bool hasBook = false;
                 for (int i = 0; i < books.Count; i++)
@@ -109,12 +111,10 @@ namespace LibraryApp
                 }
                 book.Sub = sub;
                 book.Begin = DateTime.Now;
-                book.End = DateTime.Now;
                 sub.Books.Add(book);
-                LibraryHandler(this, $"Change State Book: {book.Author} - {book.Name} was given to {sub.Name} - {sub.Phone}");
+                ChangeStateHandler(this, $"Change State Book: {book.Author} - {book.Name} was given to {sub.Name} - {sub.Phone}");
                 if (book.IsRarity)
-                    sub.HasRarityBook = true ;
-                sub.CountBook++;
+                    sub.HasRarityBook = true;
             }
             else
             {
@@ -126,7 +126,7 @@ namespace LibraryApp
         public void ReturnBook(Subscriber sub, Book book)
         {
             sub.ReturnBook(this, book);
-            LibraryHandler(this, $"Change State Book: {book.Author} - {book.Name} was return to Library");
+            ChangeStateHandler(this, $"Change State Book: {book.Author} - {book.Name} was return to Library");
         }
 
         public static void Main()
@@ -146,8 +146,21 @@ namespace LibraryApp
             Book book8 = new Book("8", "88", true);
             Book book9 = new Book("9", "99", false);
             
-            EventHandler<string> libraryHandler = (sender, str) => Console.WriteLine(str);
-            library.LibraryHandler = libraryHandler;
+            EventHandler<string> changeStateHandler = (sender, str) => Console.WriteLine(str);
+            EventHandler<Book> addBookHandler = (sender, book) =>
+            {
+                Console.WriteLine($"Book Add by {sender}");
+                Console.WriteLine("{0} - {1} ({2})", book.Author, book.Name, book.IsRarity ? "Rarity" : "Not rarity");
+            };
+            EventHandler<Subscriber> addSubHandler = (sender, sub) =>
+            {
+                Console.WriteLine($"Book Add by {sender}");
+                Console.WriteLine("Name: {0}\nPhone: {1}", sub.Name, sub.Phone);
+            };
+            library.ChangeStateHandler += changeStateHandler;
+            library.AddBookHandler += addBookHandler;
+            library.AddSubHandler += addSubHandler;
+
 
             library.AddBook(book1);
             library.AddBook(book2);
