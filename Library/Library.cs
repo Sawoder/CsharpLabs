@@ -33,7 +33,7 @@ namespace LibraryApp
         public void AddBook(Book book)
         {
             books.Add(book);
-            AddBookHandler(this, book);
+            AddBookHandler?.Invoke(this, book);
         }
 
         // Список книг библиотеки
@@ -89,7 +89,7 @@ namespace LibraryApp
             if (countsub == 0)
             {
                 subscribers.Add(sub);
-                AddSubHandler(this, sub);
+                AddSubHandler?.Invoke(this, sub);
             }
             
             if (sub.OverdueBooks().Count == 0 && sub.ListBooks().Count < 5 && (sub.HasRarityBook == false || (sub.HasRarityBook == true && book.IsRarity == false)))
@@ -112,7 +112,7 @@ namespace LibraryApp
                 book.Sub = sub;
                 book.Begin = DateTime.Now;
                 sub.Books.Add(book);
-                ChangeStateHandler(this, $"Change State Book: {book.Author} - {book.Name} was given to {sub.Name} - {sub.Phone}");
+                ChangeStateHandler?.Invoke(this, $"Change State Book: {book.Author} - {book.Name} was given to {sub.Name} - {sub.Phone}");
                 if (book.IsRarity)
                     sub.HasRarityBook = true;
             }
@@ -126,7 +126,7 @@ namespace LibraryApp
         public void ReturnBook(Subscriber sub, Book book)
         {
             sub.ReturnBook(this, book);
-            ChangeStateHandler(this, $"Change State Book: {book.Author} - {book.Name} was return to Library");
+            ChangeStateHandler?.Invoke(this, $"Change State Book: {book.Author} - {book.Name} was return to Library");
         }
 
         public static void Main()
