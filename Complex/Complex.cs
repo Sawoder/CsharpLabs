@@ -13,6 +13,92 @@ namespace ComplexApp
             Imaginary = _imaginary;
         }
 
+        public void Addition(Complex left, Complex right)
+        {
+            this += left + right;
+        }
+
+        public void Addition(params Complex[] comps)
+        {
+            foreach (Complex comp in comps)
+            {
+                this += comp;
+            }
+        }
+
+        public static Complex AdditionStatic(Complex left, Complex right)
+        {
+            return left + right;
+        }
+
+        public static Complex AdditionStatic(params Complex[] comps)
+        {
+            Complex complex = new Complex(0.0d, 0.0d);
+            foreach (Complex comp in comps)
+            {
+                complex += comp;
+            }
+            return complex;
+        }
+
+        public void Subtraction(Complex left, Complex right)
+        {
+            this -= left - right;
+        }
+
+        public static Complex SubtractionStatic(Complex left, Complex right)
+        {
+            return left - right;
+        }
+
+        public void Multiplication(Complex left, Complex right)
+        {
+            this *= left * right;
+        }
+
+        public void Multiplication(params Complex[] comps)
+        {
+            foreach (Complex comp in comps)
+            {
+                this *= comp;
+            }
+        }
+
+        public static Complex MultiplicationStatic(Complex left, Complex right)
+        {
+            return left * right;
+        }
+
+        public static Complex MultiplicationStatic(params Complex[] comps)
+        {
+            Complex complex = new Complex(0.0d, 0.0d);
+            foreach (Complex comp in comps)
+            {
+                complex *= comp;
+            }
+            return complex;
+        }
+
+        public void Division(Complex left, Complex right)
+        {
+            this /= left / right;
+        }
+
+        public static Complex DivisionStatic(Complex left, Complex right)
+        {
+            return left / right;
+        }
+
+        public static double Modulus(Complex complex)
+        {
+            return (double) complex;
+        }
+
+        public static explicit operator double(Complex complex)
+        {
+            return Math.Sqrt(complex.Real * complex.Real + complex.Imaginary * complex.Imaginary);
+        }
+
         public static Complex operator + (Complex left, Complex right)
         {
             return new Complex(left.Real + right.Real, left.Imaginary + right.Imaginary);
@@ -25,19 +111,14 @@ namespace ComplexApp
 
         public static Complex operator * (Complex left, Complex right)
         {
-            return new Complex(left.Real * right.Real, left.Imaginary * right.Imaginary);
+            return new Complex(left.Real * right.Real - left.Imaginary * right.Imaginary, left.Real * right.Imaginary + left.Imaginary * right.Real);
         }
 
         public static Complex operator / (Complex left, Complex right)
         {
-            return new Complex(left.Real / right.Real, left.Imaginary / right.Imaginary);
+            return new Complex((left.Real * right.Real + left.Imaginary * right.Imaginary) / (right.Real * right.Real + right.Imaginary * right.Imaginary), (right.Real * left.Imaginary - left.Real * right.Imaginary) / (right.Real * right.Real + right.Imaginary * right.Imaginary));
         }
-
-        public static Complex operator % (Complex left, Complex right)
-        {
-            return new Complex(left.Real % right.Real, left.Imaginary % right.Imaginary);
-        }
-
+       
         public static Complex operator + (Complex left)
         {
             return new Complex(left.Real, left.Imaginary);
@@ -50,14 +131,14 @@ namespace ComplexApp
 
         public static bool operator == (Complex left, Complex right)
         {
-            if (left.Real == right.Real && left.Imaginary == right.Imaginary)
+            if (left.Real.Equals(right.Real) && left.Imaginary.Equals(right.Imaginary))
                 return true;
             return false;
         }
 
         public static bool operator != (Complex left, Complex right)
         {
-            if (left.Real != right.Real || left.Imaginary != right.Imaginary)
+            if (!left.Real.Equals(right.Real) || !left.Imaginary.Equals(right.Imaginary))
                 return true;
             return false;
         }
@@ -78,7 +159,7 @@ namespace ComplexApp
 
         public override int GetHashCode()
         {
-            return Real.GetHashCode()*127 ^ Imaginary.GetHashCode();
+            return Real.GetHashCode() * 127 ^ Imaginary.GetHashCode();
         }
 
         public override string ToString()
@@ -86,16 +167,13 @@ namespace ComplexApp
             return $"({Real}, {Imaginary}i)";
         }
 
-        public static void main()
+        public static void Main()
         {
-            Complex comp1 = new Complex(2.4d, 4.4d);
-            Complex comp2 = new Complex(2.5d, 3.4d);
-            Console.WriteLine((comp1 + comp2 * comp2 / comp1 % comp2).ToString());
-            Console.WriteLine(comp1 == comp2);
-            Console.WriteLine(comp1 != comp2);
-            Console.WriteLine(comp1.GetHashCode());
-            Console.WriteLine(comp2.GetHashCode());
-            Console.WriteLine(comp1.Equals(comp2));
+            Complex comp1 = new Complex(-2, 1);
+            Complex comp2 = new Complex(1, -1);
+            Complex comp3 = new Complex(4, 2);
+            comp3.Addition(comp1, comp2);
+            double d = (double) comp3;
         }
     }
 }
