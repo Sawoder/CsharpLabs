@@ -11,21 +11,11 @@ namespace RootApp
     class Root
     {
         public delegate double Function(double x);
+        public delegate double Bisection(Function f, double a, double b, double epsilion);
 
-        static double F1(double x)
+        static double F(double x)
         {
             return 2 * x * x + x - 9.0;
-        }
-
-        static double F2(double x)
-        {
-            Thread.Sleep(100);
-            return 8 * x * x - 2 * x - 5.3;
-        }
-
-        static double F3(double x)
-        {
-            return -3 * x * x + x + 4.2;
         }
 
         public static double BisectionMethod(Function f, double a, double b, double epsilon)
@@ -42,6 +32,7 @@ namespace RootApp
                 else
                     x1 = midpt;
             }
+            Thread.Sleep(1000);
             Console.WriteLine(f.Method.Name + " End");
             return x2 - (x2 - x1) * f(x2) / (f(x2) - f(x1));
         }
@@ -49,34 +40,12 @@ namespace RootApp
         static void Main(string[] args)
         {
             Console.WriteLine("Main Start");
-
-            Thread thread1 = new Thread(new ThreadStart(() =>
-            {
-                Function d = F1;
-                IAsyncResult ar = d.BeginInvoke(BisectionMethod(F1, -3, 2, 0.001), null, null);
-                Console.WriteLine(d.EndInvoke(ar));
-            }));
-
-            Thread thread2 = new Thread(new ThreadStart(() =>
-            {
-                Function d = F2;
-                IAsyncResult ar = d.BeginInvoke(BisectionMethod(F2, -2, 5, 0.001), null, null);
-                Console.WriteLine(d.EndInvoke(ar));
-            }));
-
-            Thread thread3 = new Thread(new ThreadStart(() =>
-            {
-                Function d = F3;
-                IAsyncResult ar = d.BeginInvoke(BisectionMethod(F3, -1, 4, 0.001), null, null);
-                Console.WriteLine(d.EndInvoke(ar));
-            }));
-
-            thread1.Start();
-            thread2.Start();
-            thread3.Start();
-
-            Thread.Sleep(1);
+            
+            Bisection bisection = BisectionMethod;
+            IAsyncResult ar = bisection.BeginInvoke(F, -3, 2, 0.001, null, null);
             Console.WriteLine("Main End");
+            Console.WriteLine(bisection.EndInvoke(ar));
+
         }
     }
 }
