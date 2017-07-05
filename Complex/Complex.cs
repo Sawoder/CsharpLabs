@@ -13,9 +13,9 @@ namespace ComplexApp
             Imaginary = _imaginary;
         }
 
-        public void Addition(Complex left, Complex right)
+        public void Addition(Complex complex)
         {
-            this += left + right;
+            this += complex;
         }
 
         public void Addition(params Complex[] comps)
@@ -41,9 +41,9 @@ namespace ComplexApp
             return complex;
         }
 
-        public void Subtraction(Complex left, Complex right)
+        public void Subtraction(Complex complex)
         {
-            this -= left - right;
+            this -= complex;
         }
 
         public static Complex SubtractionStatic(Complex left, Complex right)
@@ -51,9 +51,9 @@ namespace ComplexApp
             return left - right;
         }
 
-        public void Multiplication(Complex left, Complex right)
+        public void Multiplication(Complex complex)
         {
-            this *= left * right;
+            this *= complex;
         }
 
         public void Multiplication(params Complex[] comps)
@@ -79,9 +79,9 @@ namespace ComplexApp
             return complex;
         }
 
-        public void Division(Complex left, Complex right)
+        public void Division(Complex complex)
         {
-            this /= left / right;
+            this /= complex;
         }
 
         public static Complex DivisionStatic(Complex left, Complex right)
@@ -167,7 +167,7 @@ namespace ComplexApp
             return $"({Real}, {Imaginary}i)";
         }
 
-        public static void Main()
+        public static void main()
         {
             Complex comp1 = new Complex(-2, 1);
             Complex comp2 = new Complex(1, -1);
