@@ -8,7 +8,7 @@ namespace MyLinkedList
     {
         public event Action<T> Added;
         public event Action<T> Removed;
-        public event Action<string> Cleared;
+        public event Action Cleared;
         
         public int Count { get; private set; }
         public bool IsReadOnly { get { return false; } }
@@ -42,25 +42,30 @@ namespace MyLinkedList
             Added?.Invoke(item);
         }
 
+        private Node FindNode(T item)
+        {
+            Node current = First;
+            while (current != null)
+            {
+                if (Equals(current.Item, item))
+                    return current;
+                current = current.Next;
+            }
+            return null;
+        }
+
         public void Clear()
         {
             First = null;
             Last = null;
             Count = 0;
-            Cleared?.Invoke("Clear");
+            Cleared?.Invoke();
         }
 
         public bool Contains(T item)
         {
-            Node current = First;
-            while (current != null)
-            {
-                if (current.Item.Equals(item))
-                {
-                    return true;
-                }
-                current = current.Next;
-            }
+            Node current = FindNode(item);
+            if (current != null) return true;
             return false;
         }
 
@@ -81,7 +86,7 @@ namespace MyLinkedList
 
             while (current != null)
             {
-                if (current.Item.Equals(item))
+                if (Equals(current.Item, item))
                 {
                     if (prev != null)
                     {
@@ -126,33 +131,19 @@ namespace MyLinkedList
 
         public bool Insert(T item, T index)
         {
-            Node current = First;
+            Node current = FindNode(index);
             Node node = new Node(item);
 
-            while (current != null)
-            {
-                if (current.Item.Equals(index))
-                {
-                    node.Next = current;
-                    node.Prev = current.Prev;
-                    if (current.Prev != null)
-                    {
-                        current.Prev.Next = node;
-                    }
-                    current.Prev = node;
+            if (current == null) return false;
+            node.Next = current;
+            node.Prev = current.Prev;
 
-                    if (node.Prev == null)
-                    {
-                        First = node;
-                    }
-                    Count++;
-                    Added?.Invoke(item);
-                    return true;
-                }
-                current = current.Next;
-            }
-            
-            return false;
+            if (current.Prev != null) current.Prev.Next = node;
+            current.Prev = node;
+            if (node.Prev == null) First = node;
+            Count++;
+            Added?.Invoke(item);
+            return true;
         }
     }
 }

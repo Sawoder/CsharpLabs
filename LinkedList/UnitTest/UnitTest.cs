@@ -100,7 +100,7 @@ namespace UnitTestMyLinkedList
             List<string> events = new List<string>();
             testList.Added += delegate (int add) { events.Add($"Add new Item = {add}"); };
             testList.Removed += delegate (int rem) { events.Add($"Remove Item = {rem}"); };
-            testList.Cleared += delegate (string str) { events.Add(str); };
+            testList.Cleared += delegate { events.Add("Clear"); };
             testList.Add(1);
             testList.Add(2);
             testList.Remove(2);
