@@ -17,24 +17,16 @@ namespace RootApp
         {
             return 2 * x * x + x - 9.0;
         }
-
-        public static double BisectionMethod(Function f, double a, double b, double epsilon)
+        
+        public static double BisectionMethod(Function f, double x1, double x2, double epsilion)
         {
-            Console.WriteLine(f.Method.Name + " Start");
-            double x1 = a;
-            double x2 = b;
-            double fb = f(b);
-            while (Math.Abs(x2 - x1) > epsilon)
+            while (x2 - x1 > epsilion)
             {
-                double midpt = 0.5 * (x1 + x2);
-                if (fb * f(midpt) > 0)
-                    x2 = midpt;
-                else
-                    x1 = midpt;
+                double c = (x1 + x2) / 2;
+                if (F(c) >= 0) x2 = c;
+                else x1 = c; 
             }
-            Thread.Sleep(1000);
-            Console.WriteLine(f.Method.Name + " End");
-            return x2 - (x2 - x1) * f(x2) / (f(x2) - f(x1));
+            return (x1 + x2) / 2;
         }
 
         static void Main(string[] args)
